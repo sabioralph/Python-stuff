@@ -2,9 +2,10 @@ import ipaddress as ipAdd
 import math
 import os
 import pandas as pd
+# function for the subnet calculator
 def subnet_calc(net,num_subnet):
     try:
-        net = ipAdd.IPv4Network(net, strict = False)
+        net = ipAdd.IPv4Network(net, strict = False)# validation for the ipv4 subnet
         new_prefix_len = net.prefixlen + math.ceil(math.log2(num_subnet))
         subnets = list(net.subnets(new_prefix=new_prefix_len))
         if len(subnets) < num_subnet:
@@ -12,7 +13,7 @@ def subnet_calc(net,num_subnet):
         results = []
         for subnet in subnets [: num_subnet]:
             result = {
-                "subnet network address": str(subnet.network_address),
+                "subnet network address": str(subnet.network_address), # for their corresponding requirements
                 "Broadcast address":str(subnet.broadcast_address),
                 "Subnet Mask": str(subnet.netmask),
                 "Number of Usable  hosts":subnet.num_addresses - 2,
