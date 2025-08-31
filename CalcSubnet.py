@@ -13,7 +13,8 @@ def subnet_calc(net,num_subnet):
         for subnet in subnets [: num_subnet]:
             result = {
                 "subnet network address": str(subnet.network_address),
-                "Broadcast address": str(subnet.netmask),
+                "Broadcast address":str(subnet.broadcast_address),
+                "Subnet Mask": str(subnet.netmask),
                 "Number of Usable  hosts":subnet.num_addresses - 2,
                 "First Usuable Hosts": str(subnet.network_address + 1),
                 "Last usuable host": str(subnet.broadcast_address - 1)
