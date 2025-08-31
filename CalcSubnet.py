@@ -25,7 +25,7 @@ def subnet_calc(net,num_subnet):
     
 def main():
     network = input("Enter the network address ex. 192.162.10.0/24: ")
-    num_subnet = int(input("Enter the numver of subnets: "))
+    num_subnet = int(input("Enter the number of subnets: "))
 
     results = subnet_calc(network,num_subnet)
     dataFr = pd.DataFrame(results)
